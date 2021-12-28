@@ -1,5 +1,3 @@
-import itertools
-
 arr = list(map(int, input().split()))
 
 while len(arr) != 1 and arr[0] != 0:

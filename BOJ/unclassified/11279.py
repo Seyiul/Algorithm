@@ -10,8 +10,8 @@ for _ in range(n):
     x = int(input())
     if x == 0:
         if len(arr) == 0:
-            print('print', 0)
+            print(0)
         else:
-            print('print', -heapq.heappop(arr))
+            print(-heapq.heappop(arr))
     else:
         heapq.heappush(arr, -x)

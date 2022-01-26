@@ -1,4 +1,7 @@
 import heapq
+import sys
+input = sys.stdin.readline
+
 n, k = map(int, input().split())
 
 jewel = []
@@ -21,8 +24,8 @@ for i in bag:
         heapq.heappop(jewel)
 
     if temp:
-        ans += -heapq.heappop(temp)
+        ans += heapq.heappop(temp)
     elif not jewel:
         break
 
-print(ans)
+print(-ans)

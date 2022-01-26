@@ -1,28 +1,21 @@
 n = int(input())
 
+prime_list = [False, False] + [True]*(n-1)
 
-def primeNum(n):
-    num = set(range(2, n+1))
-    m = int(n**0.5)
-    for i in range(2, m+1):
-        if i in num:
-            num -= set(range(2*i, n+1, i))
-    return num
+for i in range(int(n**0.5)+1):
+    if prime_list[i]:
+        for j in range(i+i, n+1, i):
+            prime_list[j] = False
 
-
-def PrimeSum(c, start, end):
-    if sum(c[start:end]) == n:
-        return True
-
+prime_list = [num for num in range(2, n+1) if prime_list[num] == True]
 
 cnt = 0
-prime = list(primeNum(n))
 
 start = 0
 end = 0
 
-while end <= len(prime):
-    tmp_sum = sum(prime[start:end])
+while end <= len(prime_list):
+    tmp_sum = sum(prime_list[start:end])
 
     if tmp_sum == n:
         cnt += 1

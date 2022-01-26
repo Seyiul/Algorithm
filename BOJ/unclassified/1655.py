@@ -23,4 +23,4 @@ for i in range(n):
         heapq.heappush(leftHeap, (-min, min))
         heapq.heappush(rightHeap, (max, max))
 
-    print('답', leftHeap[0][1])
+    print(leftHeap[0][1])

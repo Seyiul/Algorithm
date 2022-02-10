@@ -34,16 +34,16 @@ while True:
         for j in range(m):
             if graph[i][j] != 0 and visited[i][j] == False:
                 result.append(bfs(i, j))
-    # 빙산을 깍아줌
+
     for i in range(n):
         for j in range(m):
             graph[i][j] -= count[i][j]
             if graph[i][j] < 0:
                 graph[i][j] = 0
 
-    if len(result) == 0:  # 빙산이 다없어질때까지 분리가 되지않으면 break
+    if len(result) == 0:
         break
-    if len(result) >= 2:  # 빙산이 분리되면 break
+    if len(result) >= 2:
         check = True
         break
     day += 1

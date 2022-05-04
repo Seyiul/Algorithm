@@ -1,5 +1,4 @@
 from collections import deque
-from turtle import distance
 n, m, k, x = map(int, input().split())
 graph = [[] for _ in range(n+1)]
 for _ in range(m):
@@ -9,27 +8,23 @@ for _ in range(m):
 distance = [-1] * (n+1)
 distance[x] = 0
 
-result = []
 
+queue = deque([x])
 
-def bfs(city):
+while queue:
+    now = queue.popleft()
 
-    queue = deque([])
-    queue.append(city)
+    for i in graph[now]:
+        if distance[i] == -1:
+            distance[i] = distance[now] + 1
+            queue.append(i)
 
-    while queue:
-        city = queue.popleft()
-
-        for i in graph[city]:
-            if distance[i] == -1:
-                distance[i] = distance[city] + 1
-                queue.append(i)
-
-
-bfs(x)
-
+check = False
 for i in range(1, n+1):
     if distance[i] == k:
-        result.append(i)
+        print(i)
+        check = True
 
-print(*result, end='\n') if len(result) != 0 else print(-1)
+
+if check == False:
+    print(-1)
